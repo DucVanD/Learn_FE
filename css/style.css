@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.iamge {
+    height: 120px;
+    align-items: center;
+    display: flex;
+    justify-content: start;
+}
+
+.search {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search button {
+    border: none;
+    border-radius: 2px;
+    background-color: orange;
+}
+
+.search input {
+    padding-left: 10px;
+    border-radius: 1px;
+
+    outline: none;
+    border: none;
+}
+
+.search button:hover {
+    background-color: gray;
+    animation: hover 0.2s ease-in;
+}
+
+@keyframes hover{
+    0%{
+        background-color: orange; 
+    }
+
+    100%{
+       background-color: gray;
+    }
+}
+
+
+
+.color-nav{
+   
+    background-color: bisque;
+    padding: 20px 10px ;
+}
+
+.nav li a{
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}
