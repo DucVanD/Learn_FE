@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Timeline Chạy Màu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    .timeline-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline-bar {
+      position: relative;
+      height: 8px;
+      background-color: #ddd;
+      border-radius: 4px;
+    }
+
+    .progress-bar {
+      position: absolute;
+      height: 8px;
+      background-color: green;
+      border-radius: 4px;
+      width: 0;
+      transition: width 0.6s ease;
+    }
+
+    .years {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .year {
+      text-align: center;
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .content-box {
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="text-align:center">Các mốc phát triển</h2>
+
+<div class="timeline-container">
+  <div class="timeline-bar">
+    <div id="progress" class="progress-bar"></div>
+  </div>
+  <div class="years">
+    <div class="year" data-index="0" data-content="Trường Nghiệp vụ Kỹ thuật Công nghiệp">1976</div>
+    <div class="year" data-index="1" data-content="Hình 1">1986</div>
+    <div class="year" data-index="2" data-content="Hình 1">1996</div>
+    <div class="year" data-index="3" data-content="Hình 1">2006</div>
+    <div class="year" data-index="4" data-content="Hình 2">2016</div>
+    <div class="year" data-index="5" data-content="Hình 2">2026</div>
+  </div>
+</div>
+
+<div class="content-box" id="contentBox">Click vào mốc thời gian để xem nội dung</div>
+
+<script>
+  const years = document.querySelectorAll('.year');
+  const progress = document.getElementById('progress');
+  const contentBox = document.getElementById('contentBox');
+
+  years.forEach((year, index) => {
+    year.addEventListener('click', () => {
+      const percent = (index / (years.length - 1)) * 100;
+      progress.style.width = percent + '%';
+
+      const content = year.getAttribute('data-content');
+      contentBox.innerText = content;
+    });
+  });
+</script>
+
+</body>
+</html>
