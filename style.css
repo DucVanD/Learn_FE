@@ -1,57 +1,44 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.content-parent{
-    height: 100vh;
-
-}
-
-.nut{
-    display: flex;
-    position: absolute;
-    justify-content: space-around;
+.contentBox{
+    margin: auto;
     width: 100%;
-    top: -10px;
-    z-index: 2;
-    left: 0;
+    height: 100vh;
+    background-color: rgb(35, 206, 206);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
 }
 
-.nut button{
-    width: 50px;
-    padding: 2px;
-    border-radius: 5px;
+.timeline{
+     width: 1200px;
+     position: relative;
+}
+
+.years label{
     background-color: green;
-    border: none;
+    padding: 5px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.progress{
+    margin-top: 8px;
     
-
 }
-
-.timeline-bar{
-    height: 10px;
-    position: relative;
-    border-radius: 5px;
-    background-color: gainsboro;
-    z-index: 1;
-}
-
-
-.progress-bar{
+.col label{
     position: absolute;
     top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100px;
-    height: 10px;
-   background-color: brown;
-    z-index: 0;
-
 }
 
-.timeline-container{
-    position: relative;
-    width: 100%;
+.years .col{
+    display: flex;
+    justify-content: space-around;
 }
 
+#progressbar { transition: width 0.6s ease-in-out; } /* 1.2 s vừa mắt */
 
+#content{
+    height: 300px;
+}

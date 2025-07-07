@@ -1,50 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./bootstrap-5.3.7-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./css/home.css" />
+    <script src="jquery-3.7.1.min.js"></script>
 
-        <link rel="stylesheet"
-            href="./fontawesome-free-6.7.2-web/css/all.min.css">
-        <link rel="stylesheet"
-            href="./bootstrap-5.3.7-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
-    <body>
-
-        <div class="container content-parent bg-secondary py-5">
-            <div>
-                <h1 class="fs-2 text-center text-uppercase">50 năm một chặng
-                    đường</h1>
-            </div>
-
-            <div class="timeline-container">
-
-                <div class="timeline-bar">
-                    <div id="progress" class="progress-bar"></div>
-                </div>
-
-                <div class="nut">
-                    <button id="year" class="year">1976</button>
-                    <button id="year" class="year">1986</button>
-                    <button id="year" class="year">1996</button>
-                    <button id="year" class="year">2006</button>
-                    <button id="year" class="year">2016</button>
-                    <button id="year" class="year">2026</button>
-                </div>
-
-            </div>
-
-            <div class="row">
-
-            </div>
-
-            
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="contentBox container-fluid">
+      <div class="timeline">
+        <div class="progress">
+          <div
+            id="progressbar"
+            class="progress-bar bg-success"
+            role="progressbar"
+            style="width: 8%"
+          ></div>
         </div>
 
+        <div class="row years" id="ten">
+          <div class="col">
+            <label for="y1976">1976</label>
+            <input
+              type="radio"
+              checked
+              name="year"
+              value="y1976"
+              id="y1976"
+              hidden
+              onclick="selectYear(value)"
+            />
+          </div>
+          <div class="col">
+            <label for="y1986">1986</label>
+            <input
+              type="radio"
+              name="year"
+              id="y1986"
+              hidden
+              value="y1986"
+              onclick="selectYear(value)"
+            />
+          </div>
+          <div class="col">
+            <label for="y1996">1996</label>
+            <input
+              type="radio"
+              name="year"
+              id="y1996"
+              value="y1996"
+              onclick="selectYear(value)"
+              hidden
+            />
+          </div>
+          <div class="col">
+            <label for="y2006">2006</label>
+            <input
+              type="radio"
+              name="year"
+              id="y2006"
+              value="y2006"
+              onclick="selectYear(value)"
+              hidden
+            />
+          </div>
+          <div class="col">
+            <label for="y2016">2016</label>
+            <input
+              type="radio"
+              name="year"
+              id="y2016"
+              value="y2016"
+              onclick="selectYear(value)"
+              hidden
+            />
+          </div>
+          <div class="col">
+            <label for="y2026">2026</label>
+            <input
+              type="radio"
+              name="year"
+              id="y2026"
+              value="y2026"
+              onclick="selectYear(value)"
+              hidden
+            />
+          </div>
+        </div>
 
-        <script src="./bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="./js/main.js"></script>
+        <div class="row mt-5" id="content">
+        
+        </div>
+      </div>
+    </div>
 
-    </body>
+    <script src="./bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      const progress = document.getElementById("progressbar");
+      console.log(progress);
+
+      function selectYear(value) {
+        var viewfile = "y1976.html";
+        console.log(value);
+
+        switch (value) {
+          case "y1976": {
+            progress.style.width = "8%";
+            viewfile = "y1976.html";
+            break;
+          }
+          case "y1986": {
+            progress.style.width = "25%";
+            viewfile = "y1986.html";
+            break;
+          }
+          case "y1996": {
+            progress.style.width = "42%";
+            viewfile = "y1996.html";
+            break;
+          }
+          case "y2006": {
+            progress.style.width = "59%";
+            viewfile = "y2006.html";
+            break;
+          }
+          case "y2016": {
+            progress.style.width = "76%";
+            viewfile = "y2016.html";
+            break;
+          }
+
+          case "y2026": {
+            progress.style.width = "100%";
+            viewfile = "y2026.html";
+            break;
+          }
+        }
+        //jquery
+        $.ajax({
+          url: viewfile,
+          success: function (res) {
+            console.log(res);
+            $("#content").html(res);
+          },
+        });
+      }
+    </script>
+  </body>
 </html>
+
